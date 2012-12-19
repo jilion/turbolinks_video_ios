@@ -1,0 +1,28 @@
+<h1>Video with turbolinks</h1>
+
+<h2>This page is loaded with turbolinks.</h2>
+
+<p>Video are prepared in the turbolink's <code>page:load</code> callback, as follow:</p>
+
+<pre><code>$(window).bind 'page:change', ->
+  sublime.ready ->
+    $('video.sublime').each (index, el) ->
+      unless sublime(el)
+        sublime.prepare el
+
+  sublime.load()
+</code></pre>
+
+<p>As you can see, a standard <code>&lt;video&gt;</code> element starts normally...</p>
+<video class='no_sublime' poster='http://cdn.sublimevideo.net/assets/home/video/posters/poster_1-5a949afd237069449698f4968c757b95.jpg' width='800' height='450' preload='none' controls>
+  <source src="//media.sublimevideo.net/v/horizon_360p.mp4" />
+  <source src="//media.sublimevideo.net/v/horizon_360p.webm" />
+</video>
+
+<p>but a <code>&lt;video&gt;</code> element prepared by SublimeVideo doesn't!</p>
+<video class='sublime' poster='http://cdn.sublimevideo.net/assets/home/video/posters/poster_1-5a949afd237069449698f4968c757b95.jpg' width='800' height='450' preload='none' controls>
+  <source src="//media.sublimevideo.net/v/horizon_360p.mp4" />
+  <source src="//media.sublimevideo.net/v/horizon_360p.webm" />
+</video>
+
+<p><a href="home">Back to home</a></p>
